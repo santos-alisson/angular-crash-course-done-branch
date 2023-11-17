@@ -27,6 +27,7 @@ export class PokemonComponent implements OnInit{
   takeDamage(damage: number): void {
     if (this.pokemon?.currentHp) {
       this.pokemon.currentHp = this.pokemon.currentHp - damage;
+      if (this.pokemon.currentHp < 0) this.pokemon.currentHp = 0;
     }
   }
 }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AsyncComponent } from './async-component/async-component.component';
@@ -13,16 +13,19 @@ import { TemplateComponent } from './template-component/template-component.compo
 import { FormSampleModule } from './form-sample/form-sample.module';
 import { PokemonComponent } from './shared/components/pokemon/pokemon.component';
 import { PokemonBattleComponent } from './pokemon-battle/pokemon-battle.component';
+import { CommonModule } from '@angular/common';
+import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     SimpleComponent,
     ToUppercasePipe,
+    CapitalizePipe,
     AsyncComponent,
     TemplateComponent,
     PokemonComponent,
-    PokemonBattleComponent,
+    PokemonBattleComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,9 @@ import { PokemonBattleComponent } from './pokemon-battle/pokemon-battle.componen
     FormsModule,
     CardModule,
     FormSampleModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

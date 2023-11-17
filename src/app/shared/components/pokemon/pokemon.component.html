@@ -1,9 +1,10 @@
 <ng-container *ngIf="pokemon">
   <img [src]="pokemon.spriteUrl" alt="">
-  <p>nome: {{pokemon.name}}</p>
+  <p>Nome: {{pokemon.name | Capitalize}}</p>
   <p>Índice pokemon: {{pokemon.pokedexIndex}}</p>
   <p>Vida: {{pokemon.currentHp}} / {{pokemon.totalHp}}</p>
   <p>Tipos:</p>
-  <p *ngFor="let tipo of pokemon.types">{{tipo}}</p>
+  <div *ngFor="let tipo of pokemon.types">{{tipo | Capitalize}}</div>
+
 
 </ng-container>

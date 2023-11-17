@@ -1,5 +1,22 @@
 <p>pokemon-battle works!</p>
 
-<app-pokemon [pokemon]="pokemon" [battleControl$]="damageSubject$"></app-pokemon>
+<form *ngIf="form && showForm" [formGroup]="form">
+    <div>
+      <label for="pokedexIndex">Pokedex Index:</label>
+      <input type="number" name="pokedexIndex" formControlName="pokemonIndex">
+    </div>
+    <div>
+      <label for="pokemonName">Pokemon Name:</label>
+      <input type="text" name="pokemonName" formControlName="pokemonName">
+    </div>
+    <button [disabled]="isLoading" (click)="onSubmit()">Submit</button>
+  
+    <p *ngIf="isLoading">Pokemon is loading...</p>
+</form>
 
-<button (click)="onClickHit(5)">Hit!</button>
+
+<app-pokemon *ngIf="pokemon && !showForm" [pokemon]="pokemon" [battleControl$]="damageSubject$"></app-pokemon>
+
+<button *ngIf="!showForm" (click)="onClickHit(5)">Hit!</button>
+
+<button *ngIf="!showForm" (click)="showForm=true">Pick new Pokemon!</button>
