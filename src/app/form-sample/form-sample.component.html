@@ -1,0 +1,13 @@
+<form *ngIf="form" [formGroup]="form">
+  <div>
+    <label for="pokedexIndex">Pokedex Index:</label>
+    <input type="number" name="pokedexIndex" formControlName="pokemonIndex">
+  </div>
+  <div>
+    <label for="pokemonName">Pokemon Name:</label>
+    <input type="text" name="pokemonName" formControlName="pokemonName">
+  </div>
+  <button [disabled]="isLoading" (click)="onSubmit()">Submit</button>
+
+  <p *ngIf="isLoading">Pokemon is loading...</p>
+</form>

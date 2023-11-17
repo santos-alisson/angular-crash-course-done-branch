@@ -1,0 +1,23 @@
+<div class="example-controler">
+  <button (click)="display(1)">1</button>
+  <button (click)="display(2)">2</button>
+  <button (click)="display(3)">3</button>
+  <button (click)="display(4)">4</button>
+  <button (click)="display(5)">5</button>
+</div>
+
+<app-simple-component [texto]="textoInicio" *ngIf="isRenderingComponent && displaying === 1"
+  (selfDestruction)="destroyComponent()">
+</app-simple-component>
+
+<app-simple-component (selfDestruction)="destroyComponent()" texto="texto 2"
+  *ngIf="!isRenderingComponent && displaying === 1">
+</app-simple-component>
+
+<app-template-component *ngIf="displaying === 2"></app-template-component>
+
+<app-async-component *ngIf="displaying === 3"></app-async-component>
+
+<app-form-sample *ngIf="displaying === 4"></app-form-sample>
+
+<app-pokemon-battle *ngIf="displaying === 5"></app-pokemon-battle>
